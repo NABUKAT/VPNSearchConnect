@@ -28,7 +28,7 @@ region = json.load(f)
 f.close()
 
 # read VPN list
-res1 = urllib.urlopen("http://www.vpngate.net/api/iphone/")
+res1 = urllib.urlopen("https://www.vpngate.net/api/iphone/")
 cr = csv.reader(res1)
 
 # search vpn server
@@ -48,7 +48,7 @@ for row in cr:
         else:
             # get region_code
             print "Searching the region of IP(" + row[1] + ")."
-            res2 = urllib.urlopen("http://freegeoip.net/json/" + row[1])
+            res2 = urllib.urlopen("https://freegeoip.app/json/" + row[1])
             iptoaddrs = json.load(res2)
             if iptoaddrs["region_code"] != "":
                 region_code = int(iptoaddrs["region_code"])
